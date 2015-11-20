@@ -1,0 +1,151 @@
+
+
+@charset "UTF-8";
+
+.container:after, .clearfix:after {display:block;content:"";clear:both;}
+
+.container, .clearfix {display:block;*zoom:1;}
+*:before, *:after {box-sizing:border-box;}
+.container {padding-left:15px;padding-right:15px;margin-left:auto;margin-right:auto;}
+a {text-decoration:none;}
+
+/* FAQ */
+
+.wrap_bd{margin:0 auto;padding:0;}
+
+.im_default_bg{background:#F7F7F7;width:100%;overflow:hidden;font-family:"微软雅黑",Helvetica,Arial,Tahoma,Verdana,sans-serif}
+
+#container {width:1200px;margin:0 auto;}
+
+.faq_con,.faq_items dd{position:relative}
+
+.faq_con em,.faq_items dt,.faq_items dd span{background:url("../images/faq_icon.png") no-repeat}
+
+.faq_con em{position:absolute;background-position:0 0;width:88px;height:101px;diaplay:inline-block;font-style:normal}
+
+.faq_items{margin:45px 0 20px 135px;overflow:hidden}
+
+.faq_items dt{margin:20px 0;background-position:-64px -150px;padding-left:40px;line-height:30px;font-size:18px}
+
+.faq_items dt a,.faq_items dt a:hover{color:#333}
+
+.faq_items dd{margin:0 0 30px 40px;/*text-indent:2em;*/background:#FFF;padding:30px}
+
+.faq_items dd a,.faq_items dd a:hover{color:#0080B1}
+
+.faq_items dd span{background-position:-64px -110px;position:absolute;left:-40px;top:3px;width:23px;height:27px}
+
+
+
+/* demo sdk */
+
+.wrap_bd{margin:0 auto;padding:0;}
+
+.wrap_bd p {line-height:160%;}
+
+/* .w1200{/background:#F7F7F7;} */
+
+
+
+/*Download下载页*/
+
+.download_wrap{width:100%;}
+
+.step_info{width:1200px;margin: 0 auto;padding:0;color:#FFF;font:14px/24px "Microsoft Yahei","微软雅黑",Helvetica,Arial}
+
+/* .step_info h2{font-size:36px;line-height:36px;padding:35px 0 15px} */
+
+.step_info h2 span{font-size:14px;padding-left:10px}
+
+
+
+.step_icon li{float:left;width:300px;height:360px;/* background:url(../images/icon_bg.png) no-repeat -18px 0; */position: relative;}
+
+.step_icon .ios_icon,.step_icon .andriod_icon,.step_icon .webIm_icon{
+
+	display:block;height:150px;width:150px;margin:90px 0 36px 75px;border-radius:75px;cursor:pointer;
+
+}
+
+.step_icon .ios_icon{background:url(../images/ios.png) no-repeat 25px 25px; border: 1px solid #29ABE2;transition:box-shadow 0.2s ease;}
+
+.step_icon .andriod_icon{background:url(../images/andriod.png) no-repeat 25px 25px;border:1px solid #39B54A;transition:box-shadow 0.2s ease;}
+
+.step_icon .webIm_icon{background:url(../images/SDK.png) no-repeat 25px 25px;border:1px solid #E0C847;transition:box-shadow 0.2s ease;}
+
+.step_icon .webIm_icon:hover,.step_icon .ios_icon:hover,.step_icon .andriod_icon:hover{-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.3),0 6px 20px rgba(0,0,0,0.5);-moz-box-shadow: 0 2px 2px rgba(0,0,0,0.3),0 6px 20px rgba(0,0,0,0.5);box-shadow: 0 2px 2px rgba(0,0,0,0.3),0 6px 20px rgba(0,0,0,0.5);transform:translate3d(0px,-2px,0px);}
+
+/* .step_icon span.ios_icon{display:block;height:270px;background:url(../images/ios.png) no-repeat 98px 90px}
+
+.step_icon span.andriod_icon{display:block;height:150px;width:150px;margin:60px 0 60px 75px;border:1px solid #39B54A;border-radius:75px;background:url(../images/andriod.png) no-repeat 25px 25px}
+
+.step_icon span.webIm_icon{display:block;height:270px;background:url(../images/SDK.png) no-repeat 100px 90px} */
+
+.step_icon li.li_away{margin-left:150px}
+
+.ios_btn,.andriod_btn,.web_btn{display:block;width:300px;line-height:54px;background:#29abe2;color:#FFF;text-align:center}
+
+.andriod_btn{background:#39b54a}
+
+.web_btn{background:#e0c847}
+
+.ios_btn img{position: absolute;top:20.5em;left:18em;border: 0;}
+
+/* .step_icon span{display:block;color:#999;text-align:left;font-size:12px;line-height:24px}
+
+.step_icon span em{float:right;display:block}
+
+.step_icon span em,.step_icon li span a{font-style:normal;color:#29abe2;font-size:16px}
+
+.step_icon li.li_away span em,.step_icon li.li_away span a{color:#39b54a}
+
+.step_icon li.li_web span em,.step_icon li.li_web span a{color:#ac9d4a} */
+
+
+
+.history_date {overflow:hidden;font-size:14px;font-family:"Microsoft Yahei","微软雅黑",Helvetica,Arial;margin:60px 0;}
+
+.history_left,.history_right{width:300px;float:left;margin-right:150px;padding-bottom:20px;}
+
+.history_margin_right {margin-right:0;}
+
+/*.history_right{float:right}*/
+
+.history_left h2{background:url(../images/ios_1.png) #fff no-repeat 5px 5px;height:35px;font-weight:normal;line-height:35px}
+
+.history_right h2{background:url(../images/andriod_1.png) #fff no-repeat 5px 5px;height:35px;font-weight:normal;line-height:35px}
+
+.history_left .first{background:url(../images/SDK_1.png) #fff no-repeat 5px 5px;height:35px;font-weight:normal;line-height:35px}
+
+.history_date.first{margin-bottom:10px;padding-left:45px;z-index:99}
+
+.history_date h2{margin-bottom:10px;padding-left:45px;z-index:99}
+
+.history_date ul li {margin-left:18px;border-left:1px solid #EBEBEB;padding:30px 0 0 30px;zoom:1}
+
+.history_date ul li:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
+
+.history_date ul li h3,.history_date ul li h3 a{color:#0080b1;font-weight:normal;line-height:26px;position:relative;}
+
+.history_date ul li h3 em{height:10px;width:10px;background:#29abe2;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;position:absolute;left:-36px;top:8px}
+
+.history_date ul li h3 span{color:#e0c847;}
+
+/*.history_date ul li dl {float:left;}*/
+
+.history_date ul li dl dt{word-wrap:break-word;font-size:14px;line-height:24px;color:#4D4D4D;display:block}
+
+.history_date ul.history_right li h3 em{background:#29abe2}
+
+.ios_ul,.andriod_ul,.web_ul{display:none}
+
+.history_date ul.history_margin_right li h3 em{background:#39b54a}
+
+.history_date ul.history_margin_right li h3 span{color:#39b54a}
+
+
+
+.history_date ul li h3 .history_color{color:#29abe2;}
+
+.history_date ul li h3 .first_en{height:10px;width:10px;background:#e0c847;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;position:absolute;left:-36px;top:8px}
+

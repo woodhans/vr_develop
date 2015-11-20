@@ -3,7 +3,7 @@
 *:focus {outline: none;}
 *,*:after,*:before {-webkit-box-sizing: border-box;	-moz-box-sizing: border-box; box-sizing: border-box; padding: 0; margin: 0;}
 html,body{height:100%}
-body {margin: 0;padding: 0;overflow-x:hidden;color:#fff;font-size:12px;line-height:20px;height:100%; min-width:320px;}
+body {margin: 0;padding: 0;overflow-x:hidden;color:#333;font-size:12px;line-height:20px;height:100%; min-width:320px;}
 html.zh body,html.zh_cn body{font-family:'黑体',Helvetica,Arial,sans-serif;}
 @-webkit-viewport{width:device-width}
 @-moz-viewport{width:device-width}
@@ -19,11 +19,12 @@ p > span {display: inline;}
 span > a {display: inline;}
 a > span {display: inline;}
 li > a{display: inline;}
-a {text-decoration: none; color:#fff;}
+a {text-decoration: none; color:#333;}
 h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {display: inline;}
 h1, h2, h3, h4, h5, h6{color:#000;line-height:100%;}
 ul {height: 100%;}
 ul > li{list-style:none; }
+.floatitems>li{float: left;}
 sub {vertical-align: sub; font-weight:normal; font-size:60%;}
 sup {vertical-align:super; font-weight:normal; font-size:80%;}
 .clearFix{clear:both;}
@@ -31,7 +32,13 @@ sup {vertical-align:super; font-weight:normal; font-size:80%;}
 /*********rest.css end*********/
 /*********all.css start********/
 .wrapper{position: absolute; left: 0;top: 0;width:100%;min-height: 100%; overflow-x: hidden;z-index: 99;}
-.bodybg{background-color: #333;}
+.container{width: 1200px; margin: 0 auto;}
+header{background-color: #f0f0f0; width: 100%;}
+.logo{padding: 5px 0; float: left; margin-right: 30px;}
+.nav{float: left;}
+.nav li{width: 102px; margin-right: 10px; padding: 26px 0; height: 22px; text-align: center;}
+.nav li>a{font-size: 18px; line-height: 22px; display: block; color: #333; background-color: #f0f0f0;}
+.nav li>a.current{color: #fff; background-color: #333;}
 .ellipsis{text-overflow: ellipsis;}
 .centerText{text-align: center; margin-left: auto; margin-right: auto;}
 
