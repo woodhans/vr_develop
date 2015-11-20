@@ -11,6 +11,16 @@
 	</head>
 	<body>
 		<div class="wrapper">
+			<div class="loginarea">
+				<div class="container">
+					<ul class="floatitems">
+						<li><a href="javascript:;" data-function="login()">登录</a></li>
+						<li><a href="javascript:;" data-function="register()">注册</a></li>
+						<div class="clearFix"></div>
+					</ul>
+					<div class="clearFix"></div>
+				</div>
+			</div>
 			<header>
 				<div class="container">
 					<div class="logo">
@@ -19,8 +29,11 @@
 					<div class="nav">
 						<ul class="floatitems">
 							<li><a href="index.html">首页</a></li>
-							<li><a href="index.html" class="current">开发者</a></li>
-							
+							<li><a href="index.html" class="current">产品服务</a></li>
+							<li><a href="index.html">硬件服务</a></li>
+							<li><a href="index.html">软件服务</a></li>
+							<li><a href="index.html">资源与下载</a></li>
+							<li><a href="index.html">关于我们</a></li>
 							<div class="clearFix"></div>
 						</ul>
 					</div>
@@ -28,20 +41,106 @@
 				</div>
 			</header>
 			<section class="mainbody">
-				<div class="container">
+				<div class="fearture" id="banner">
+					<a href="index.html"><img src="img/banner.jpg" class="banner"/></a>
+					<a href="index.html"><img src="img/banner.jpg" class="banner"/></a>
+					<div id="BanChangBtn"><a href="javascript:;" class="current"></a><a href="javascript:;"></a></div>
 				</div>
 			</section>
 			<footer>
-				<div class="container">
-					<div class="favourlinks">
+				<div class="favourlinks">
+					<div class="container">
+						<h3>友情链接</h3>
 						<ul class="floatitems">
-							<li></li>
+							<li><a href="javascript:;">雅芳中国</a></li>
+							<li><a href="javascript:;">百雀羚</a></li>
+							<li><a href="javascript:;">自然堂</a></li>
+							<li><a href="javascript:;">巴黎欧莱雅</a></li>
+							<li><a href="javascript:;">谷歌</a></li>
+							<div class="clearFix"></div>
 						</ul>
+						<div class="clearFix"></div>
+					</div>
+				</div>
+				<div class="foot_nav">
+					<div class="container">
+						<div class="logo">
+							<a href="index.html"><img src="img/logo2.png"></a>
+						</div>
+						<ul class="floatitems navlinks">
+							<li><a href="javascript:;">首页</a></li>
+							<li><a href="javascript:;">产品服务</a></li>
+							<li><a href="javascript:;">联络商城</a></li>
+							<li><a href="javascript:;">公司动态</a></li>
+							<li><a href="javascript:;">投资关系</a></li>
+							<li class="last"><a href="javascript:;">关于我们</a></li>
+							<li class="last"><a href="javascript:;">联络互动智能产品</a></li>
+							<div class="clearFix"></div>
+						</ul>
+						<div class="sharelinks">
+							<ul class="floatitems">
+								<li><a href="javascript:;"><img src="img/xl.png"/></a></li>
+								<li><a href="javascript:;"><img src="img/qq.png"/></a></li>
+								<li><a href="javascript:;"><img src="img/wb.png"/></a></li>
+								<li><a href="javascript:;"><img src="img/gd.png"/></a></li>
+								<div class="clearFix"></div>
+							</ul>
+							<form class="submitemail">
+								<input type="email" id="email" name="email" value="" placeholder="请输入邮件订阅" class="emailtext" />
+								<input type="button" class="emailbtn" value="提交" />
+								<div class="clearFix"></div>
+							</form>
+						</div>
+						<div class="clearFix"></div>
+					</div>
+				</div>
+				<div class="copyright">
+					<div class="container">
+						<div class="copytext">
+							©2015杭州联络互动信息科技股份有限公司. 版权所有 京ICP备13016972号-4 京公网安备11010502024419
+						</div>
+						<div class="tel">
+							<span><img src="img/tel.png"/></span>
+							<span>全国免费咨询热线：(86) 010-65918368</span>
+						</div>
+						<div class="clearFix"></div>
 					</div>
 				</div>
 			</footer>
 		</div>
 		
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//banner开始
+var imgIndex=0;
+$('#banner img').eq(imgIndex).show();
+$(function(){
+	var _Time=setInterval(autoChang,3000);
+	$('#BanChangBtn a').click(function(){
+		imgIndex=$('#BanChangBtn a').index(this);
+		imgChang(imgIndex)
+	})
+	$('#BanChangBtn').hover(
+		function(){clearInterval(_Time);},
+		function(){_Time=setInterval(autoChang,3000);}
+	)
+	$('#banner img').hover(
+		function(){clearInterval(_Time);},
+		function(){_Time=setInterval(autoChang,3000);}
+	)
+	
+})
+function autoChang(){
+	var l=$('#BanChangBtn a').length;
+	imgIndex=(imgIndex>=l-1)?0:imgIndex+1;
+	imgChang(imgIndex);
+}
+function imgChang(n){
+$('#BanChangBtn a').removeClass('current').eq(n).addClass('current');
+$('#banner img').hide().eq(n).fadeIn(1500);
+}
+//banner结束
+
+		</script>
 	</body>
 </html>
