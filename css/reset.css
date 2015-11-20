@@ -33,17 +33,19 @@ sup {vertical-align:super; font-weight:normal; font-size:80%;}
 /*********all.css start********/
 .wrapper{position: absolute; left: 0;top: 0;width:100%;min-height: 100%; overflow-x: hidden;z-index: 99;}
 .container{width: 1200px; margin: 0 auto;}
-.last{margin-right: 0;}
+.last{margin-right: 0!important;}
 header{background-color: #f0f0f0; width: 100%;}
 .loginarea{background-color: #222;}
 .logo{padding: 5px 0; float: left; margin-right: 30px;}
 .nav{float: right;}
 .nav li{width: 102px; margin-right: 10px; padding: 26px 0; height: 22px; text-align: center;}
 .nav li>a{font-size: 18px; line-height: 22px; display: block; color: #333; background-color: #f0f0f0;}
-.nav li>a.current{color: #fff; background-color: #333;}
+.nav li>a.current,.nav li>a:hover{color: #fff; background-color: #333;}
 .ellipsis{text-overflow: ellipsis;}
+a:hover,input[type=button]:active,.animation{transition: all .3s;}
 .centerText{text-align: center; margin-left: auto; margin-right: auto;}
 
+footer,footer a,.loginarea a{color: #999;}
 .favourlinks{background-color: #2b2b2b; color: #999;}
 .favourlinks h3{color: #fff; float: left; line-height: 60px; margin-right: 40px; font-size: 18px;}
 .favourlinks ul,.foot_nav ul{float: left;}
@@ -52,17 +54,20 @@ header{background-color: #f0f0f0; width: 100%;}
 .foot_nav{background-color: #282828; border-bottom: 1px solid #333;}
 .navlinks{width: 410px;}
 .loginarea ul{float: right;}
+.loginarea li>a,.loginarea li:after{font-size: 16px; line-height: 32px;}
 .foot_nav li,.loginarea li{margin-right: 10px;}
-.navlinks li>a,.loginarea li>a{line-height: 25px; color: #999;}
-.navlinks li>a:after,.loginarea li>a:after{content: "|"; margin-left: 10px;}
-.navlinks .last>a:after{content: "";margin-left: 0;}
+.navlinks li>a{line-height: 25px;}
+.navlinks li:after,.loginarea li:after{content: "|"; margin-left: 10px;}
+.navlinks .last:after,.loginarea .last:after{content: "";margin-left: 0;}
 .sharelinks{float: right;}
 .sharelinks li{padding: 8px 0;}
 .submitemail{height: 24px; padding: 8px 0; float: left;}
-.emailtext{width: 160px;height: 24px;background: none;border: 1px solid #333;float: left;padding: 0 5px;}
+.emailtext{width: 160px;height: 24px;background: none;border: 1px solid #333;float: left;padding: 0 5px; color: #ccc;}
 .emailbtn{float: left; height: 24px; background-color: #3b3b3b; color: #999; width: 60px; cursor: pointer;}
-.copyright{background-color: #282828; color: #999; line-height: 60px;}
+.emailbtn:active{text-indent: 10px;}
+.copyright{background-color: #282828; line-height: 60px;}
 .copytext{float: left;}
 .tel{float: right;}
 .tel img{padding-top: 23px;}
 .tel span{float: left; margin-right: 10px;}
+footer a:hover,.loginarea a:hover{color: #ccc;}

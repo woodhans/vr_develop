@@ -46,6 +46,58 @@
 					<a href="index.html"><img src="img/banner.jpg" class="banner"/></a>
 					<div id="BanChangBtn"><a href="javascript:;" class="current"></a><a href="javascript:;"></a></div>
 				</div>
+				<div class="container">
+					<div class="half">
+						<div class="icon"><img src="img/icon_p.png" class="centerText"/></div>
+						<div class="selection">
+							<h2>硬件平台</h2>
+							<p class="centerText">高效,敏捷的流程落地平台，快速实现流程落地，企业业务流程管理战略支撑平台</p>
+							<a href="javascript:;" class="centerText">Detail</a>
+						</div>
+					</div>
+					<div class="half last">
+						<div class="icon"><img src="img/icon_p.png" class="centerText"/></div>
+						<div class="selection">
+							<h2>内容平台</h2>
+							<p class="centerText">高效,敏捷的流程落地平台，快速实现流程落地，企业业务流程管理战略支撑平台</p>
+							<a href="javascript:;" class="centerText">Detail</a>
+						</div>
+					</div>
+					<div class="clearFix"></div>
+				</div>
+				<div class="process">
+					<div class="container">
+						<h2>资源接入流程</h2>
+						<div class="third">
+							<a href="javascript:;" class="centerText"><img src="img/icon1.png" class="centerText"/><br/>申请成为开发者</a>
+						</div>
+						<div class="third">
+							<a href="javascript:;" class="centerText"><img src="img/icon2.png" class="centerText"/><br/>下载SDK</a>
+						</div>
+						<div class="third last">
+							<a href="javascript:;" class="centerText"><img src="img/icon3.png" class="centerText"/><br/>开发包上传</a>
+						</div>
+						<div class="clearFix"></div>
+					</div>
+				</div>
+				<div class="service">
+					<div class="container">
+						<h2>开发者服务</h2>
+						<div class="forth">
+							<a href="javascript:;"><img src="img/beto.png" class="centerText"/><br />成为开发者</a>
+						</div>
+						<div class="forth">
+							<a href="javascript:;"><img src="img/up_load.png" class="centerText"/><br />上传资源</a>
+						</div>
+						<div class="forth">
+							<a href="javascript:;"><img src="img/shenhe.png" class="centerText"/><br />资源审核</a>
+						</div>
+						<div class="forth last">
+							<a href="javascript:;"><img src="img/fabu.png" class="centerText"/><br />联络平台发布</a>
+						</div>
+						<div class="clearFix"></div>
+					</div>
+				</div>
 			</section>
 			<footer>
 				<div class="favourlinks">
@@ -110,6 +162,7 @@
 		</div>
 		
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			//banner开始
 var imgIndex=0;
@@ -128,7 +181,6 @@ $(function(){
 		function(){clearInterval(_Time);},
 		function(){_Time=setInterval(autoChang,3000);}
 	)
-	
 })
 function autoChang(){
 	var l=$('#BanChangBtn a').length;
@@ -140,7 +192,18 @@ $('#BanChangBtn a').removeClass('current').eq(n).addClass('current');
 $('#banner img').hide().eq(n).fadeIn(1500);
 }
 //banner结束
-
+$(function(){
+	var imgUrl;
+	$('.process a').each(function(i,e){
+		$(e).hover(function(){
+			imgUrl=$(this).find('img').attr('src').delstr('.png');
+			$(this).find('img').attr('src',imgUrl.addstr('_hover').addstr('.png'));
+		},function(){
+			imgUrl=$(this).find('img').attr('src');
+			$(this).find('img').attr('src',imgUrl.delstr('_hover'));
+		})
+	})
+})
 		</script>
 	</body>
 </html>
