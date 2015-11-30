@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>忘记密码</title>
+<style type="text/css">
+	*{ margin:0; padding:0;}
+	::-webkit-scrollbar{display: none;}
+	body{ font-size:14px; width: 600px; height: 450px; overflow: hidden; background: transparent;}
+	a{ color:#333; text-decoration:none;}
+	a,input{ outline:none;}
+	.login{ width:580px; margin:20px auto; padding:30px; box-sizing:border-box;}
+	.login form{ width:400px; margin:0 auto;}
+	.login h2{ font-size:24px; font-weight:normal; text-align:center; margin-bottom:20px;}
+	.login .login_tit{ line-height:35px;}
+	.login .login_regist{ color:#666; margin-left:10px;}
+	dt{width: 80px; line-height: 45px; font-size: 16px; float: left; margin-bottom:12px;}
+	dd{width: 320px; float: left; margin-bottom:12px;}
+	.login .login_input{ font-size:14px; background-color:#CCC; width:320px; height:45px; line-height:45px; border:0; border-radius:2px; padding-left:10px; color:#000; box-sizing:border-box;}
+	.login .login_btn{cursor: pointer; width:400px; height:45px; line-height:45px; background-color:#29abe2; display:inline-block; border-radius:5px; text-align:center; color:#FFF; font-size:20px; border:none; margin-top:6px; margin-bottom:12px;}
+</style>
+</head>
+
+<body>
+	<div class="login">
+    	<form id="loginform">
+        	<h2>找回密码</h2>
+            <div class="login_tit">
+            		<span class="login_zh">没有账号？</span>
+                <a href="javascript:;" class="login_regist">立即注册</a>
+            </div>
+            <dl>
+            	<dt>用户名：</dt>
+            	<dd><input type="text" class="login_input login_user" name="username" placeholder="用户名" /></dd>
+            	<dt>接收邮箱：</dt>
+            	<dd><input type="email" class="login_input login_email" name="email" placeholder="接收邮箱" /></dd>
+            </dl>
+            <input type="submit" class="login_btn" value="发送邮件" /><br />
+        </form>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery.metadata.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/messages_cn.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    		$('#loginform').validate({
+    			rules: {
+    				username:{required:true},
+    				email:{required:true,email:true}
+    			},
+    			submitHandler:function(){
+				form_submit();
+	  		}
+    		})
+    		function form_submit(){
+    			$('.login_btn').attr('disabled',true);
+    			//ajax提交数据后台.......
+    			var username=$('.login_user').val(),email=$('.login_email').val();
+    			var data={username:username,receive:email};
+    			var ajaxUrl="http://122.49.3.206/pm/phpmailer/test.php"
+    			$.ajax({
+    				url:ajaxUrl,
+    				data:data,
+    				success:function(d){
+    					var data1=$.parseJSON(d);
+    					if(data1.code=="0"){
+    						//发送成功
+    						alert('发送成功，请去邮箱查看');
+    						window.top.$.removeSlider('forgot','up');
+    					}
+    					else{
+    						alert('用户名错误');
+    						$('.login_btn').attr('disabled',false)
+    					}
+    				},
+    			});
+    		}
+    		$('.login_regist').on('click',function(){
+    			window.top.$.removeSlider('login','up',function(){
+    				window.top.$.slider({url:'pages/register.html',radius:10,width:600,height:550,id:"register"})
+    			})
+    		})
+    	</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>注册</title>
+<style type="text/css">
+	*{ margin:0; padding:0;}
+	::-webkit-scrollbar{display: none;}
+	body{font-size:14px; width: 600px; height: 550px; overflow: hidden; background: transparent;}
+	a{ color:#333; text-decoration:none;}
+	a,input{ outline:none;}
+	.register{ width:580px; margin:20px auto; box-sizing:border-box;}
+	.register form{ width:400px; margin:0 auto;}
+	.register h2{ font-size:24px; font-weight:normal; text-align:center; margin-bottom:20px;}
+	.register .register_tit{ line-height:35px;}
+	.register .register_regist{ color:#666; margin-left:10px;}
+	.register .register_input{ font-size:14px; background-color:#CCC; width:300px; height:45px; line-height:45px; border:0; border-radius:2px; padding-left:10px; color:#000; box-sizing:border-box; position: absolute; top: 0;}
+	.register .register_input2{ width:300px;}
+	.register .register_btn{cursor: pointer; width:400px; height:45px; line-height:45px; background-color:#29abe2; display:inline-block; border-radius:5px; border: none; text-align:center; color:#FFF; font-size:20px; margin-top:6px; margin-bottom:12px;}
+	.register .register_yhxy{ line-height:35px;}
+	.register .register_yhxy a{ color:#29abe2;}
+	ul,ul li{list-style: none;}
+	.register_span{float: left;width: 100px; line-height: 45px; font-size: 16px;}
+	li{width:400px; height:45px; margin-bottom:22px;position: relative;}
+	.radios{height: 30px; margin-bottom: 22px;}
+	.register_radio{margin-right: 10px; line-height: 30px; font-size: 16px;}
+	label.error{position: absolute;top: 49px;left: 100px;color: #f00;}
+	.radios label.error{top:28px}
+</style>
+</head>
+
+<body>
+	<div class="register">
+    	<form id="registerform">
+        	<h2>用户注册</h2>
+            <div class="register_tit">
+            		<span class="register_zh">已有账号？</span>
+                <a href="javascript:;" class="register_regist">立即登录</a>
+            </div>
+            <ul>
+            		<li><span class="register_span">用户名：</span><input type="text" class="register_input register_user" name="username" id="username" placeholder="用户名" /></li>
+            		<li class="radios"><span class="register_radio">开发者所属：</span><input type="radio" name="usertype" value="personal" class="register_radio usertype" /><label for="usertype" class="register_radio">个人</label><input type="radio" name="usertype" value="company" class="register_radio" /><label for="usertype" class="register_radio usertype">企业</label></li>
+            		<li class="radios"><span class="register_radio">开发者平台：</span><input type="radio" name="platform" value="hardware" class="register_radio platform" /><label for="platform" class="register_radio">硬件</label><input type="radio" name="platform" value="software" class="register_radio platform" /><label for="platform" class="register_radio">软件</label></li>
+            		<li><span class="register_span">账户密码：</span><input type="password" class="register_input register_pwd password" name="userpwd" id="userpwd" placeholder="请输入密码" /></li>
+            		<li><span class="register_span">确认密码：</span><input type="password" class="register_input register_pwd" name="repeatpwd" placeholder="确认密码" /></li>
+            </ul>
+            <!--<input type="text" placeholder="请输入图片验证码" class="register_input register_input2" />
+            <img src="images/yzm.jpg" /><br />-->
+            <div class="register_yhxy">	点击“立即注册”既表示您愿意遵守<a href="../rules.html" target="_blank">《用户协议》</a></div>
+            <input type="submit" class="register_btn" value="立即注册" />
+        </form>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery.metadata.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/messages_cn.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	$(function(){
+    			$('.platform').each(function(i,e){
+    				if($(e).val()==window.localStorage.getItem('platform'))
+    				$(this).attr('checked',true);
+    			})
+    			$('.register_user').on('blur',function(){
+    				var checkUrl='http://122.49.3.206/validate/test.php';
+    				var username=$(this).val();
+    				$.ajax({
+    					url:checkUrl,
+    					data:{username:username},
+    					success:function(d){
+    						if(d=="0"){
+    						//已经注册
+    						alert('该用户名已被注册！请换一个重试');
+    						$('.register_user').focus()
+    						}
+    					}
+    				});
+    			})
+    		$('#registerform').validate({
+    			rules: {
+    				username:{required:true},
+    				userpwd:{required:true},
+    				repeatpwd:{required:true,equalTo:'#userpwd'},
+    				usertype:{required:true},
+    				platform:{required:true}
+    			},
+    			submitHandler:function(){
+				form_submit();
+	  		}
+    		})
+    		function form_submit(){
+    			//ajax提交数据后台.......
+    			var username=$('.register_user').val(),userpwd=$('.password').val(),usertype=$('.usertype').val(),platform=$('.platform').val();
+    			var data={username:username,password:userpwd,kfzss:usertype,kfzpt:platform};
+    			var checkUrl='http://122.49.3.206/validate/test.php';
+    			var ajaxUrl="http://122.49.3.206/jiekou/jiekou/jiekou.php?action=adduserinfo";
+    			$.ajax({
+    				url:checkUrl,
+    				data:data,
+    				success:function(d){
+    					var data1=$.parseJSON(d);
+    					if(data1.code=="0"){
+    						//已经注册
+    						alert('该用户名已被注册！请换一个重试');
+    					}else{
+    						regist(ajaxUrl,data);
+    					}
+    				}
+    			});
+    		}
+    		function regist(ajaxUrl,data){
+    			$.ajax({
+    				url:ajaxUrl,
+    				data:data,
+    				success:function(d){
+    					var data1=$.parseJSON(d);
+    					if(data1.code=="0"){
+    						window.localStorage.setItem('userinfo',JSON.stringify(data));
+    			alert('注册成功');
+    			
+    			if(parseInt(window.localStorage.getItem('goto'))>0){
+    				msg=window.localStorage.getItem('goto')=="1"?'将于12月10日正式开放下载，':'内部测试中，';
+    				window.top.$.removeSlider('register','up',function(){
+    					alert('联络互动开发者平台资源下载中心\n'+msg+'敬请期待!');
+    					window.top.location.reload();
+    				});
+    			}
+    			
+			else if(window.localStorage.getItem('goto'))
+ 			window.top.location.href='../'+window.localStorage.getItem('goto');
+  			else
+    			window.top.location.reload();
+    					}
+    					else{
+    						alert('注册失败');
+    					}
+    				}
+    			})
+    		}
+    		$('.register_regist').on('click',function(){
+    			window.top.$.removeSlider('register','up',function(){
+    				window.top.$.slider({url:'pages/login.html',radius:10,width:600,height:450,id:"login"})
+    			})
+    		})
+    	})
+    </script>
+</body>
+</html>

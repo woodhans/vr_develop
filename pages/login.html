@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>登录</title>
+<style type="text/css">
+	*{ margin:0; padding:0;}
+	::-webkit-scrollbar{display: none;}
+	body{ font-size:14px; width: 600px; height: 450px; overflow: hidden; background: transparent;}
+	a{ color:#333; text-decoration:none;}
+	a,input{ outline:none;}
+	.login{ width:580px; margin:20px auto; padding:30px; box-sizing:border-box;}
+	.login form{ width:400px; margin:0 auto;}
+	.login h2{ font-size:24px; font-weight:normal; text-align:center; margin-bottom:20px;}
+	.login .login_tit{ line-height:35px;}
+	.login .login_regist{ color:#666; margin-left:10px;}
+	dt{width: 80px; line-height: 45px; font-size: 16px; float: left; margin-bottom:12px;}
+	dd{width: 320px; float: left; margin-bottom:12px;}
+	.login .login_input{ font-size:14px; background-color:#CCC; width:320px; height:45px; line-height:45px; border:0; border-radius:2px; padding-left:10px; color:#000; box-sizing:border-box;}
+	.login .login_btn{cursor: pointer; width:400px; height:45px; line-height:45px; background-color:#29abe2; display:inline-block; border-radius:5px; text-align:center; color:#FFF; font-size:20px; border:none; margin-top:6px; margin-bottom:12px;}
+	.login .login_forget{color:#666; line-height:30px;}
+</style>
+</head>
+
+<body>
+	<div class="login">
+    	<form id="loginform">
+        	<h2>用户登录</h2>
+            <div class="login_tit">
+            		<span class="login_zh">没有账号？</span>
+                <a href="javascript:;" class="login_regist">立即注册</a>
+            </div>
+            <dl>
+            	<dt>用户名：</dt>
+            	<dd><input type="text" class="login_input login_user" name="username" placeholder="用户名" /></dd>
+            	<dt>密码：</dt>
+            	<dd><input type="password" class="login_input login_pwd" name="userpwd" placeholder="密码" /></dd>
+            </dl>
+            <input type="submit" class="login_btn" value="立即登录" /><br />
+            <a href="javascript:;" class="login_forget">忘记密码</a>
+        </form>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery.metadata.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/messages_cn.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    		$('#loginform').validate({
+    			rules: {
+    				username:{required:true},
+    				userpwd:{required:true}
+    			},
+    			submitHandler:function(){
+				form_submit();
+	  		}
+    		})
+    		function form_submit(){
+    			//ajax提交数据后台.......
+    			var username=$('.login_user').val(),userpwd=$('.login_pwd').val(),platform=window.localStorage.getItem('platform')||'';
+    			var data={username:username,password:userpwd};
+    			var ajaxUrl="http://122.49.3.206/jiekou/jiekou/jiekou.php?action=userlogin";
+    			$.ajax({
+    				url:ajaxUrl,
+    				data:data,
+    				success:function(d){
+    					var data1=$.parseJSON(d);
+    					if(data1.code=="0"){
+    						//登录成功
+    						window.localStorage.setItem('userinfo',JSON.stringify(data));
+    						alert('登录成功');
+    						if(parseInt(window.localStorage.getItem('goto'))>0){
+    							msg=window.localStorage.getItem('goto')=="1"?'将于12月10日正式开放下载，':'内部测试中，';
+    							window.top.$.removeSlider('login','up',function(){
+    								alert('联络互动开发者平台资源下载中心\n'+msg+'敬请期待!');
+    								window.top.location.reload();
+    							});
+    						}
+  						else if(window.localStorage.getItem('goto'))
+ 							window.top.location.href='../'+window.localStorage.getItem('goto');
+  						else
+    							window.top.location.reload();
+    					}
+    					else{
+    						alert('用户名或密码错误');
+    					}
+    				}
+    			});
+    			
+    		}
+    		$('.login_regist').on('click',function(){
+    			window.top.$.removeSlider('login','up',function(){
+    				window.top.$.slider({url:'pages/register.html',radius:10,width:600,height:550,id:"register"})
+    			})
+    		})
+    		$('.login_forget').on('click',function(){
+    			window.top.$.removeSlider('login','up',function(){
+    				window.top.$.slider({url:'pages/forgot.html',radius:10,width:600,height:450,id:"forgot"})
+    			})
+    		})
+    	</script>
+</body>
+</html>

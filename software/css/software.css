@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.container:after, .clearfix:after {display:block;content:"";clear:both;}
+
+.container, .clearfix {display:block;*zoom:1;}
+*:before, *:after {box-sizing:border-box;}
+.container {padding-left:15px;padding-right:15px;margin-left:auto;margin-right:auto;}
+a {text-decoration:none;}
+
+/* FAQ */
+.centre_content{width: 1200px; margin: 0px auto; padding-top: 30px;}
+h1{font-size: 22px;
+  color: #d31c76;
+  margin-bottom: 24px;}
+/* demo sdk */
+p {line-height:160%; margin-bottom: 12px;}
+
+/* .w1200{/background:#F7F7F7;} */
+

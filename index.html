@@ -2,38 +2,46 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="Description" content=""/>
-		<meta name="Keywords" content=""/>
-		<title></title>
+		<title>联络互动VR开发者平台</title> 
+  <meta name="description" content="联络互动开发者平台提供联络互动 SDK下载" /> 
+  <meta name="keywords" content="联络互动，联络互动开发者平台，联络互动开发者，联络互动 SDK" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<link rel="icon shorticon" href="img/favicon.ico" type='image/x-icon'/>
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/jquery.slider.css"/>
+		<!--[if lte IE 9]>
+		<script src="js/selectivizr.js" type="text/javascript" charset="utf-8"></script>	
+		<![endif]-->
 	</head>
 	<body>
 		<div class="wrapper">
 			<div class="loginarea">
 				<div class="container">
-					<ul class="floatitems">
+					<ul class="floatitems" id="logpanel">
 						<li><a href="javascript:;" data-function="login()">登录</a></li>
 						<li><a href="javascript:;" data-function="register()">注册</a></li>
 						<div class="clearFix"></div>
 					</ul>
+					<div id="hellopanel">
+						Hello, <span></span> <a href="javascript:;" data-function="exit()">退出</a>
+					</div>
 					<div class="clearFix"></div>
 				</div>
 			</div>
 			<header>
 				<div class="container">
 					<div class="logo">
-						<a href="index.html"><img src="img/logo.png"/></a>
+						<a href="http://www.lianluo.com/" target="_blank"><img src="img/logo.png"/></a>
 					</div>
 					<div class="nav">
 						<ul class="floatitems">
-							<li><a href="index.html">首页</a></li>
-							<li><a href="index.html" class="current">产品服务</a></li>
-							<li><a href="index.html">硬件服务</a></li>
-							<li><a href="index.html">软件服务</a></li>
-							<li><a href="index.html">资源与下载</a></li>
-							<li><a href="index.html">关于我们</a></li>
+							<li><a href="http://www.lianluo.com/" target="_blank">首页</a></li>
+							<li><a href="index.html" class="current">开发者平台</a></li>
+							<li><a href="hardware.html">硬件服务</a></li>
+							<li><a href="software.html">软件服务</a></li>
+							<li><a href="download.html">资源与下载</a></li>
+							<li style="display: none;"><a href="javascript:;">关于我们</a></li>
 							<div class="clearFix"></div>
 						</ul>
 					</div>
@@ -42,9 +50,10 @@
 			</header>
 			<section class="mainbody">
 				<div class="fearture" id="banner">
-					<a href="index.html"><img src="img/banner.jpg" class="banner"/></a>
-					<a href="index.html"><img src="img/banner.jpg" class="banner"/></a>
-					<div id="BanChangBtn"><a href="javascript:;" class="current"></a><a href="javascript:;"></a></div>
+					<a href="javascript:;"><img src="img/banner_01.jpg" class="banner"/></a>
+					<a href="javascript:;"><img src="img/banner_02.jpg" class="banner"/></a>
+					<a href="javascript:;"><img src="img/banner_03.jpg" class="banner"/></a>
+					<div id="BanChangBtn"><a href="javascript:;" class="current"></a><a href="javascript:;"></a><a href="javascript:;"></a></div>
 				</div>
 				<div class="container">
 					<div class="half">
@@ -52,7 +61,7 @@
 						<div class="selection">
 							<h2>硬件平台</h2>
 							<p class="centerText">高效,敏捷的流程落地平台，快速实现流程落地，企业业务流程管理战略支撑平台</p>
-							<a href="javascript:;" class="centerText">Detail</a>
+							<a href="hardware.html" class="centerText">Detail</a>
 						</div>
 					</div>
 					<div class="half last">
@@ -60,7 +69,7 @@
 						<div class="selection">
 							<h2>内容平台</h2>
 							<p class="centerText">高效,敏捷的流程落地平台，快速实现流程落地，企业业务流程管理战略支撑平台</p>
-							<a href="javascript:;" class="centerText">Detail</a>
+							<a href="software.html" class="centerText">Detail</a>
 						</div>
 					</div>
 					<div class="clearFix"></div>
@@ -69,13 +78,13 @@
 					<div class="container">
 						<h2>资源接入流程</h2>
 						<div class="third">
-							<a href="javascript:;" class="centerText"><img src="img/icon1.png" class="centerText"/><br/>申请成为开发者</a>
+							<a href="javascript:;" class="centerText" data-function="checklogin('download.html')"><img src="img/icon1.png" class="centerText"/><br/>申请成为开发者</a>
 						</div>
 						<div class="third">
-							<a href="javascript:;" class="centerText"><img src="img/icon2.png" class="centerText"/><br/>下载SDK</a>
+							<a href="javascript:;" class="centerText" data-function="checklogin('download.html')"><img src="img/icon2.png" class="centerText"/><br/>下载SDK</a>
 						</div>
 						<div class="third last">
-							<a href="javascript:;" class="centerText"><img src="img/icon3.png" class="centerText"/><br/>开发包上传</a>
+							<a href="javascript:;" class="centerText" data-function="checklogin('download.html')"><img src="img/icon3.png" class="centerText"/><br/>开发包上传</a>
 						</div>
 						<div class="clearFix"></div>
 					</div>
@@ -126,7 +135,7 @@
 							<li><a href="javascript:;">公司动态</a></li>
 							<li><a href="javascript:;">投资关系</a></li>
 							<li class="last"><a href="javascript:;">关于我们</a></li>
-							<li class="last"><a href="javascript:;">联络互动智能产品</a></li>
+							<!--<li class="last"><a href="javascript:;">联络互动智能产品</a></li>-->
 							<div class="clearFix"></div>
 						</ul>
 						<div class="sharelinks">
@@ -163,10 +172,11 @@
 		
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.slider.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			//banner开始
 var imgIndex=0;
-$('#banner img').eq(imgIndex).show();
+$('#banner>a').eq(imgIndex).show();
 $(function(){
 	var _Time=setInterval(autoChang,3000);
 	$('#BanChangBtn a').click(function(){
@@ -189,10 +199,15 @@ function autoChang(){
 }
 function imgChang(n){
 $('#BanChangBtn a').removeClass('current').eq(n).addClass('current');
-$('#banner img').hide().eq(n).fadeIn(1500);
+var l=$('#BanChangBtn a').length;
+	//n1=(n==0)?2:n-1;
+	//console.log(n1)
+$('#banner>a').hide().eq(n).fadeIn(1500);
 }
 //banner结束
 $(function(){
+	window.localStorage.removeItem('platform');
+	window.localStorage.removeItem('goto');
 	var imgUrl;
 	$('.process a').each(function(i,e){
 		$(e).hover(function(){
@@ -203,7 +218,10 @@ $(function(){
 			$(this).find('img').attr('src',imgUrl.delstr('_hover'));
 		})
 	})
+	showInfo();
 })
+
+
 		</script>
 	</body>
 </html>

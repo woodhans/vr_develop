@@ -3,7 +3,7 @@
 *:focus {outline: none;}
 *,*:after,*:before {-webkit-box-sizing: border-box;	-moz-box-sizing: border-box; box-sizing: border-box; padding: 0; margin: 0;}
 html,body{height:100%}
-body {margin: 0;padding: 0;overflow-x:hidden;color:#333;font-size:12px;line-height:20px;height:100%; min-width:320px;}
+body {margin: 0;padding: 0;color:#333;font-size:12px;line-height:20px;height:100%; min-width:320px;}
 html.zh body,html.zh_cn body{font-family:'黑体',Helvetica,Arial,sans-serif;}
 @-webkit-viewport{width:device-width}
 @-moz-viewport{width:device-width}
@@ -11,8 +11,10 @@ html.zh body,html.zh_cn body{font-family:'黑体',Helvetica,Arial,sans-serif;}
 @-o-viewport{width:device-width}
 @viewport{width:device-width}
 a:hover{text-decoration:none;}
+
 ::selection {background-color:#CCC;color: #000;}
 div, a, p, img, blockquote, form, fieldset, textarea, input, label, iframe, code, pre {display: block;position:relative;}
+iframe{border: none; behavior: url(PIE.htc);}
 p {line-height: 160%;letter-spacing:0px;text-align:justify;text-justify:inter-ideograph;} 
 p > a {display: inline;}
 p > span {display: inline;}
@@ -23,6 +25,7 @@ a {text-decoration: none; color:#333;}
 h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {display: inline;}
 h1, h2, h3, h4, h5, h6{color:#000;line-height:100%;}
 ul {height: 100%;}
+a,input{ outline:none;}
 ul > li{list-style:none; }
 .floatitems>li{float: left;}
 sub {vertical-align: sub; font-weight:normal; font-size:60%;}
@@ -31,7 +34,7 @@ sup {vertical-align:super; font-weight:normal; font-size:80%;}
 .clearFix:after{content:''; display:block; clear:both;}
 /*********rest.css end*********/
 /*********all.css start********/
-.wrapper{position: absolute; left: 0;top: 0;width:100%;min-height: 100%; overflow-x: hidden;z-index: 99;}
+.wrapper{position: absolute; left: 0;top: 0;width:100%;min-height: 100%; min-width:1200px;z-index: 99;}
 .container{width: 1200px; margin: 0 auto;}
 .last{margin-right: 0!important;}
 header{background-color: #f0f0f0; width: 100%;}
@@ -46,7 +49,7 @@ a:hover,input[type=button]:active,.animation{transition: all .3s;}
 .centerText{text-align: center; margin-left: auto; margin-right: auto;}
 
 footer,footer a,.loginarea a{color: #999;}
-.favourlinks{background-color: #2b2b2b; color: #999;}
+.favourlinks{background-color: #2b2b2b; color: #999; display: none;}
 .favourlinks h3{color: #fff; float: left; line-height: 60px; margin-right: 40px; font-size: 18px;}
 .favourlinks ul,.foot_nav ul{float: left;}
 .favourlinks li{margin-right: 10px;}
@@ -59,7 +62,7 @@ footer,footer a,.loginarea a{color: #999;}
 .navlinks li>a{line-height: 25px;}
 .navlinks li:after,.loginarea li:after{content: "|"; margin-left: 10px;}
 .navlinks .last:after,.loginarea .last:after{content: "";margin-left: 0;}
-.sharelinks{float: right;}
+.sharelinks{float: right; display: none;}
 .sharelinks li{padding: 8px 0;}
 .submitemail{height: 24px; padding: 8px 0; float: left;}
 .emailtext{width: 160px;height: 24px;background: none;border: 1px solid #333;float: left;padding: 0 5px; color: #ccc;}
@@ -71,3 +74,6 @@ footer,footer a,.loginarea a{color: #999;}
 .tel img{padding-top: 23px;}
 .tel span{float: left; margin-right: 10px;}
 footer a:hover,.loginarea a:hover{color: #ccc;}
+#hellopanel,#logpanel{display: none;}
+#hellopanel a{display: inline;}
+#hellopanel{float: right;color: #fff; font-size: 16px; line-height: 32px;}
